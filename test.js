@@ -1,5 +1,4 @@
 var vm = require('vm'),
-  util = require('util'),
   ScriptCompiler = require('./lib/compiler');
 
 var script = [
@@ -9,13 +8,17 @@ var script = [
     cmds: [
       {
         name: 'GetFilesCmd',
-        properties:{
-          Path: '/usr/local/bin'
+        args:{
+          Path: '/usr/local/bin',
+          IncludeDetails: true
         }
       },
       {
         name: 'SortObjectCmd',
-        properties:{}
+        args:{
+          Property: 'Name',
+          Direction: 'desc'
+        }
       }
     ]
   }
@@ -25,6 +28,6 @@ var scriptText = new ScriptCompiler().compile(script);
 
 var cs = vm.createScript(scriptText);
 
-cs.runInNewContext({require:require, process:process});
+cs.runInNewContext({require:require, process:process, console:console});
 
 
