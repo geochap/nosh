@@ -10,7 +10,7 @@ var script = [
         name: 'GetFilesCmd',
         args:{
           Path: '/usr/local/bin',
-          IncludeDetails: true
+          IncludeDetails: false
         }
       },
       {
@@ -18,6 +18,11 @@ var script = [
         args:{
           Property: 'Name',
           Direction: 'desc'
+        }
+      },
+      {
+        name: 'FormatListCmd',
+        args:{
         }
       }
     ]
