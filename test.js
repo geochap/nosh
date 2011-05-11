@@ -22,7 +22,31 @@ var script = [
       },
       {
         name: 'FormatListCmd',
-        args:{
+        args:{}
+      }
+    ]
+  },
+  {
+    type: 'switch',
+    cases: [
+      {
+        if: {
+          type: 'operator',
+          name: 'eq',
+          args:[
+            {
+              type: 'variable',
+              name: '$a'
+            },
+            {
+              type: 'number',
+              value: 12
+            }
+          ]
+        },
+        then: {
+          type: 'number',
+          value: 11
         }
       }
     ]
